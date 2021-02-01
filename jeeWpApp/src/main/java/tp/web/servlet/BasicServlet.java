@@ -25,7 +25,7 @@ public class BasicServlet extends HttpServlet {
 	@Inject //since JEE 6 (for local EJB only or CDI components)
 	private BasicService basicService;//impl by ebj stateless
 	
-	@Inject
+	//@Inject
 	private UserService userService;
  
     public BasicServlet() {
@@ -39,8 +39,8 @@ public class BasicServlet extends HttpServlet {
 		
 		String message=basicService.sayHello(username);
 		
-		User user1 =userService.findUserById(1);
-		String message2="name of user1=" + user1.getLogin();
+		//User user1 =userService.findUserById(1);
+		//String message2="name of user1=" + user1.getLogin();
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -48,7 +48,7 @@ public class BasicServlet extends HttpServlet {
 		out.println("<h3>BasicServlet</h3>");
 		out.println("<p>username=<i>"+username+"</i></p>");
 		out.println("<p>message=<b>"+message+"</b></p>");
-		out.println("<p>message2=<b>"+message2+"</b></p>");
+		//out.println("<p>message2=<b>"+message2+"</b></p>");
 		out.println("<body><html>");
 	}
 

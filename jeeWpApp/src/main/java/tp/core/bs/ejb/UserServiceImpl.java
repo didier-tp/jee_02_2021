@@ -11,14 +11,14 @@ import tp.core.entity.User;
 
 
 //@Stateless
-@Singleton
+//@Singleton
 //@TransactionManagement(TransactionManagementType.CONTAINER) par défaut
 // transactions gérées automatiquement par le contenueur d'EJB (partie de Jboss)
 //@TransactionAttribute(TransactionAttributeType.REQUIRED) par défaut
 // REQUIRED signifie besoin de .beginTransaction() et .commit()/.rollback()
 public class UserServiceImpl implements UserService {
 	
-	@EJB //depuis EJB 3.0
+	//@EJB //depuis EJB 3.0
 	//@Inject //depuis EJB3.1 
 	private UserDao userDao;
 

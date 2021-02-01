@@ -12,13 +12,13 @@ import tp.core.entity.User;
 
 //EJB session sans état
 //@Stateless //Ejb 3 et EJB 3.1 , 3.2
-@Singleton //variante de @Stateless depuis EJB 3.1
+//@Singleton //variante de @Stateless depuis EJB 3.1
 //@TransactionManagement(TransactionManagementType.CONTAINER) par défaut
 //transactions gérées automatiquement par le contenueur d'EJB (partie de Jboss)
 //@TransactionAttribute(TransactionAttributeType.REQUIRED) par défaut
 //REQUIRED signifie besoin de .beginTransaction() et .commit()/.rollback()
 public class UserDaoImpl implements UserDao {
-	@PersistenceContext //pour initialiser le entityManager
+	//@PersistenceContext //pour initialiser le entityManager
 	                    //en fonction META-INF/persistence.xml
 	EntityManager entityManager;
 	
