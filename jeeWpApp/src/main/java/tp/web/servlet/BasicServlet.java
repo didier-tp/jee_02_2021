@@ -12,18 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import tp.core.bs.BasicService;
 import tp.core.bs.UserService;
-import tp.core.entity.User;
 
 /**
  * Servlet implementation class BasicServlet
  */
 @WebServlet("/BasicServlet")
 public class BasicServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; 
 	
 	//@EJB // since JEE 5 (ok for EJB local or remote)
 	@Inject //since JEE 6 (for local EJB only or CDI components)
-	private BasicService basicService;//impl by ebj stateless
+	private BasicService basicService=null;//impl by ebj stateless
 	
 	//@Inject
 	private UserService userService;
@@ -45,11 +44,11 @@ public class BasicServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("<h3>BasicServlet</h3>");
+		out.println("<h3>BasicServlet v2</h3>");
 		out.println("<p>username=<i>"+username+"</i></p>");
 		out.println("<p>message=<b>"+message+"</b></p>");
 		//out.println("<p>message2=<b>"+message2+"</b></p>");
-		out.println("<body><html>");
+		out.println("</body></html>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
