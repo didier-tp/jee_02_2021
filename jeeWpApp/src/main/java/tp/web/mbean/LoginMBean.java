@@ -1,10 +1,10 @@
 package tp.web.mbean;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean //ManagedBean de JSF
-@RequestScoped //ou SessionScoped
+@SessionScoped
 public class LoginMBean {
 	
 	private Long numClient; //ou Integer
