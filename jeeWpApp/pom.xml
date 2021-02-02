@@ -19,6 +19,12 @@
 			 <version>1.18.6</version>
     		<scope>provided</scope>
 		</dependency>
+		
+		<dependency> <!-- extension pour JSF (onglet, ...) -->
+    		<groupId>org.primefaces</groupId>
+    		<artifactId>primefaces</artifactId>
+   		 	<version>8.0</version>
+		</dependency>
  
        <dependency>
 		    <groupId>javax</groupId>
