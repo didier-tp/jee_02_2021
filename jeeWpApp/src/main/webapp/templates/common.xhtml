@@ -4,9 +4,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
+  <link rel="stylesheet" href="css/styles.css" />
   <title><ui:insert name="title">Default title</ui:insert></title>
 </h:head>
-
+<!--  attention , bug assistant eclipse , il faut ajouter h:
+  sur h:head et h:body dans common.xhtml -->
 <h:body>
 <ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
 

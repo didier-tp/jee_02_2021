@@ -11,10 +11,12 @@
     <ui:define name="title"> tva </ui:define>
 	<ui:define name="content">
 		<h3>calcul de tva</h3> 
-	    <h:messages />
+	    <h:messages styleClass="RedCssClass" />
 	    <h:form>
-	       montant ht : <h:inputText value="#{tvaMBean.ht}"/> <br/>
-	       tauxTva : <h:inputText value="#{tvaMBean.tauxTva}"/> <br/>
+	       montant ht : <h:inputText label="ht" value="#{tvaMBean.ht}"/> <br/>
+	       tauxTva : <h:inputText label="tauxTva" value="#{tvaMBean.tauxTva}">
+	                    <f:validateDoubleRange minimum="0" maximum="100"/>
+	               </h:inputText> <br/>
 	       <h:commandButton value="calculer Tva" action="#{tvaMBean.calculerTva}" />
 	    </h:form>
 	    tva = <h:outputText value="#{tvaMBean.tva}"/> <br/>
