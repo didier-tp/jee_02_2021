@@ -7,17 +7,15 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	  
 <ui:composition template="/templates/common.xhtml">
-    <ui:define name="title"> tva </ui:define>
+    <ui:define name="title"> login </ui:define>
 	<ui:define name="content">
-		<h3>calcul de tva</h3> 
+		<h3>login</h3> 
 	    <h:messages />
 	    <h:form>
-	       montant ht : <h:inputText value="#{tvaMBean.ht}"/> <br/>
-	       tauxTva : <h:inputText value="#{tvaMBean.tauxTva}"/> <br/>
-	       <h:commandButton value="calculer Tva" action="#{tvaMBean.calculerTva}" />
+	      numero Client : <h:inputText value="#{loginMBean.numClient}"/> <br/>
+	      password : <h:inputText value="#{loginMBean.password}"/> <br/>
+	       <h:commandButton value="login" action="#{loginMBean.login}" />
 	    </h:form>
-	    tva = <h:outputText value="#{tvaMBean.tva}"/> <br/>
-	    ttc = <h:outputText value="#{tvaMBean.ttc}"/> <br/>
 	</ui:define>
 	
 </ui:composition>
