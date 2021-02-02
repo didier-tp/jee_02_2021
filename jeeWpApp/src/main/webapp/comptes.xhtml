@@ -10,9 +10,30 @@
     <ui:define name="title"> comptes du client </ui:define>
 	<ui:define name="content">
 	numClient = <h:outputText value="#{loginMBean.numClient}"/> <br/>
-	<h3>comptes de client</h3> 
+	<h3>comptes du client :</h3> 
 	<!--  futur tableau ...  -->
-	    
+	<h:dataTable border="1" value="#{clientComptesMBean.listeComptes}"
+	     var="c" >
+	     <h:column>
+	         <f:facet name="header">
+                    <f:verbatim>numero</f:verbatim>
+              </f:facet>
+	         <h:outputText value="#{c.numero}" />
+	     </h:column>
+	     <h:column>
+	         <f:facet name="header">
+                    <f:verbatim>label</f:verbatim>
+              </f:facet>
+	         <h:outputText value="#{c.label}" />
+	     </h:column>
+	     <h:column>
+	         <f:facet name="header">
+                    <f:verbatim>solde</f:verbatim>
+              </f:facet>
+	         <h:outputText value="#{c.solde}" />
+	     </h:column>
+	</h:dataTable>    
+	 <br/>  
 	   
 	</ui:define>
 	

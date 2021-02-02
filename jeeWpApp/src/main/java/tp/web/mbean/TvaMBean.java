@@ -3,8 +3,13 @@ package tp.web.mbean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @ManagedBean //ManagedBean de JSF
 @RequestScoped //ou SessionScoped
+@Getter @Setter @NoArgsConstructor
 public class TvaMBean {
     private Double ht; //à saisir 
     private Double tauxTva; //à saisir ou choisir
@@ -23,34 +28,7 @@ public class TvaMBean {
     	//pour afficher le résultat
     }
     
-	public TvaMBean() {
-		super();
-	}
 	
-	public Double getHt() {
-		return ht;
-	}
-	public void setHt(Double ht) {
-		this.ht = ht;
-	}
-	public Double getTauxTva() {
-		return tauxTva;
-	}
-	public void setTauxTva(Double tauxTva) {
-		this.tauxTva = tauxTva;
-	}
-	public Double getTva() {
-		return tva;
-	}
-	public void setTva(Double tva) {
-		this.tva = tva;
-	}
-	public Double getTtc() {
-		return ttc;
-	}
-	public void setTtc(Double ttc) {
-		this.ttc = ttc;
-	}
     
     
 }

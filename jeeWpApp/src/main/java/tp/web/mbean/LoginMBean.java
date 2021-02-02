@@ -14,6 +14,7 @@ public class LoginMBean {
 		String suite=null;
 		//simulation test mot de passe :
 		if(password.equals("pwd" + numClient)) {
+			//ex: numClient=1 et pwd=pwd1 ok
 		    suite="comptes"; //pour naviguer vers comptes.xhtml si login ok
 		}
 		return suite;

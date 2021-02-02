@@ -1,23 +1,20 @@
 package tp.core.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 // Java Bean (composant java quelconque)
 // avec get/set et un constructeur par défaut
 
 // POJO = Plain Old/Ordinary Java Object
 
 //@Entity
+@Getter @Setter @NoArgsConstructor
 public class Compte {
 	private Long numero; //pas de long mais plutôt Long (valeur null)
 	private String label;
 	private Double solde;
-	
-	
-	
-	public Compte() {
-		super();
-	}
-	
-	
 	
 	public Compte(Long numero, String label, Double solde) {
 		super();
@@ -25,29 +22,7 @@ public class Compte {
 		this.label = label;
 		this.solde = solde;
 	}
-
-
-
-	public Long getNumero() {
-		return numero;
-	}
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	public Double getSolde() {
-		return solde;
-	}
 	
-	public void setSolde(Double solde) {
-		this.solde = solde;
-	}
 	
-	//+get/set et constructeurs
 	
 }
