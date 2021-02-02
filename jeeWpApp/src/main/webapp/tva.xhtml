@@ -5,32 +5,21 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-	
-<body>
-<f:view>
-   <h3>calcul de tva</h3> 
-    <h:messages />
-    <h:form>
-       montant ht : <h:inputText value="#{tvaMBean.ht}"/> <br/>
-       tauxTva : <h:inputText value="#{tvaMBean.tauxTva}"/> <br/>
-       <h:commandButton value="calculer Tva" action="#{tvaMBean.calculerTva}" />
-    </h:form>
-    tva = <h:inputText value="#{tvaMBean.tva}"/> <br/>
-    ttc = <h:inputText value="#{tvaMBean.ttc}"/> <br/>
-</f:view>
-</body>	
-	
-<!--  
-<ui:composition template="">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
-	</ui:define>
+	  
+<ui:composition template="/templates/common.xhtml">
+    <ui:define name="title"> tva </ui:define>
 	<ui:define name="content">
-	    Add your content here or delete to use the default
+		<h3>calcul de tva</h3> 
+	    <h:messages />
+	    <h:form>
+	       montant ht : <h:inputText value="#{tvaMBean.ht}"/> <br/>
+	       tauxTva : <h:inputText value="#{tvaMBean.tauxTva}"/> <br/>
+	       <h:commandButton value="calculer Tva" action="#{tvaMBean.calculerTva}" />
+	    </h:form>
+	    tva = <h:inputText value="#{tvaMBean.tva}"/> <br/>
+	    ttc = <h:inputText value="#{tvaMBean.ttc}"/> <br/>
 	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
+	
 </ui:composition>
--->
+
 </html>
