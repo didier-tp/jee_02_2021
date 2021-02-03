@@ -19,7 +19,7 @@ import tp.core.entity.Compte;
 public class ClientComptesMBean {
 		private List<Compte> listeComptes; //à afficher dans un tableau.
 		//private Client client;
-		private Long numClient;
+		private Long numClient=1L;  //temporairement
 		
 		private Double montant; //montant à transférer (virement)
 		private Long numCptDeb ; //numero d'un compte à débiter (virement)

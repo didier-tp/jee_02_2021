@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -39,6 +41,13 @@ public class Compte {
 	private String label;
 	
 	private Double solde; //par défaut stock" dans colonne "solde"
+	
+	@ManyToOne
+	@JoinColumn(name="refClient")
+	private Client client; //avec get/set
+	
+	
+	
 	/*
 	@Transient
 	private String topSecret; //pas stocké en base
@@ -49,7 +58,16 @@ public class Compte {
 		this.label = label;
 		this.solde = solde;
 	}
-	
+
+
+
+	@Override
+	public String toString() {
+		return "Compte [numero=" + numero + ", label=" + label + ", solde=" + solde + "]";
+	}
+
+
+
 	
 	
 }

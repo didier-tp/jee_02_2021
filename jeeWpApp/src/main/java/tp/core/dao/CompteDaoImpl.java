@@ -36,11 +36,10 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public List<Compte> findByNumClient(Long numClient) {
 		return entityManager
-				.createQuery("SELECT c FROM Compte c",Compte.class)
-				//.setParameter("numCli", numClient)
+				.createQuery("SELECT c FROM Compte c JOIN c.client cli WHERE cli.numClient = :numCli",Compte.class)
+				.setParameter("numCli", numClient)
 				.getResultList();  //à compléter plus tard avec JOIN et la classe Client
 		
-		//SELECT c FROM Compte WHERE .... :numCli : code complet plus tard
 	}
 
 	@Override
