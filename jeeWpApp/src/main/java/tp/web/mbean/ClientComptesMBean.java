@@ -1,15 +1,16 @@
 package tp.web.mbean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tp.core.bs.CompteService;
 import tp.core.entity.Compte;
 
 @ManagedBean //ManagedBean de JSF
@@ -39,12 +40,26 @@ public class ClientComptesMBean {
 			return suite;
 		}
 		
+		/* @Inject demande au container de initialiser la variable 
+		 * compteService pour que ça référence un objet existant pris en charge par 
+		 * le serveur qui est compatible avec l'interface.
+		 * 
+		 * @Autowired est l'annotation équivalente de Spring
+		 */
+		
+		@Inject 
+		private CompteService compteService =null;
+		
 		@PostConstruct
 		public void initialisation() {
-			//V1 : on met des valeurs "en dur" aujourd'hui (jeu de données)
+			/* Version préliminaire (pas bien sans @Inject):
+            //this.compteService = new CompteServiceImpl();
+            //this.compteService = new CompteServiceSimu();
+			*/
+			
+            this.listeComptes = compteService.rechercherComptesDuClient(numClient);
+			
 			//v2 : on ira plus tard chercher les valeurs en base de données
-			this.listeComptes = new ArrayList<>();
-			this.listeComptes.add(new Compte(1L,"compte 1" , 300.0));
-			this.listeComptes.add(new Compte(2L,"compte 2 (epargne)" , 200.0));
+			
 		}
 }
