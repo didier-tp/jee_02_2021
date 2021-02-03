@@ -24,7 +24,8 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor
 @NamedQueries({
   @NamedQuery(name = "Compte.findAll" , query = "SELECT c FROM Compte c") ,
-  @NamedQuery(name = "Compte.findByClientNum" , query = "SELECT c FROM Compte c")
+  @NamedQuery(name = "Compte.findByClientNum" , 
+     query = "SELECT c FROM Compte c JOIN c.client cli WHERE cli.numClient = :numCli")
 })
 public class Compte {
 	
