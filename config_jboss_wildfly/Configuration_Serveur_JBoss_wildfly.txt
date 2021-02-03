@@ -40,5 +40,6 @@ en y ajustant une configuration de ce type (près de la ligne 153 environ):
                 </drivers>
             </datasources>
 
-
+=========================
+La version standalone-full.xml est nécessaire pour les EJB de type MDB/JMS .
 
