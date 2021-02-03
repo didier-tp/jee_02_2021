@@ -4,22 +4,29 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tp.core.bs.CompteService;
 import tp.core.entity.Compte;
 
 @ManagedBean //ManagedBean de JSF
-@SessionScoped
+@RequestScoped
 @Getter @Setter 
 public class ClientComptesMBean {
 		private List<Compte> listeComptes; //à afficher dans un tableau.
 		//private Client client;
 		private Long numClient=1L;  //temporairement
+		
+		//Attention: on doit idéalement injecter un Bean qui dure assez longtemps
+		//dans un Bean plus éphémère ou de même temps de vie
+		//ex: ApplicationScoped ou SessionScoped injecté dans RequestScoped ou SessionScoped
+		
+		@ManagedProperty("#{loginMBean}") //ok @ManagedProperty() si getLoginMBean() existe
+		private LoginMBean loginMBean;
 		
 		private Double montant; //montant à transférer (virement)
 		private Long numCptDeb ; //numero d'un compte à débiter (virement)
@@ -58,19 +65,19 @@ public class ClientComptesMBean {
 		
 		@PostConstruct
 		public void initialisation() {
-			
-			System.out.println("dans initialisation() préfixé par @PostConstruct,compteService= "
-					+ compteService);
-			
-			
 			/* Version préliminaire (pas bien sans @Inject):
             //this.compteService = new CompteServiceImpl();
             //this.compteService = new CompteServiceSimu();
 			*/
+			System.out.println("dans initialisation() préfixé par @PostConstruct,compteService= "
+					+ compteService);
 			
+			//Récupérer .numClient du bean loginMBean
+			//et le recopier ici dans ClientComptesMBean:
+			this.numClient = this.loginMBean.getNumClient();
+			System.out.println("ClientComptesMBean.numClient="+numClient);
             this.listeComptes = compteService.rechercherComptesDuClient(numClient);
-			
-			//v2 : on ira plus tard chercher les valeurs en base de données
+
 			
 		}
 }

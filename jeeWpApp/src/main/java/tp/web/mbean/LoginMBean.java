@@ -1,7 +1,9 @@
 package tp.web.mbean;
 
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 
 @ManagedBean //ManagedBean de JSF
 @SessionScoped
