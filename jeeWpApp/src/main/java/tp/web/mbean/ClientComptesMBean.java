@@ -15,7 +15,7 @@ import tp.core.entity.Compte;
 
 @ManagedBean //ManagedBean de JSF
 @SessionScoped
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter 
 public class ClientComptesMBean {
 		private List<Compte> listeComptes; //à afficher dans un tableau.
 		//private Client client;
@@ -50,8 +50,19 @@ public class ClientComptesMBean {
 		@Inject 
 		private CompteService compteService =null;
 		
+		public ClientComptesMBean() {
+			super();
+			System.out.println("dans constructeur ClientComptesMBean(),compteService= "
+					+ compteService);
+		}
+		
 		@PostConstruct
 		public void initialisation() {
+			
+			System.out.println("dans initialisation() préfixé par @PostConstruct,compteService= "
+					+ compteService);
+			
+			
 			/* Version préliminaire (pas bien sans @Inject):
             //this.compteService = new CompteServiceImpl();
             //this.compteService = new CompteServiceSimu();
