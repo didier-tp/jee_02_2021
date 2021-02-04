@@ -2,15 +2,11 @@ package tp.core.bs.ejb;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ejb.Singleton;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
 import javax.enterprise.inject.Default; //CDI
 import javax.inject.Inject;
+import javax.jws.WebService;
 
 import tp.core.bs.CompteService;
 import tp.core.dao.CompteDao;
@@ -33,7 +29,12 @@ import tp.core.entity.Compte;
 //@TransactionAttribute(TransactionAttributeType.REQUIRED) par défaut sur EJB
 
 //@Transactional() = equivalent dans Spring (à expliciter)
+
+@WebService(endpointInterface = "tp.core.bs.CompteService")
 public class CompteServiceImpl implements CompteService {
+	
+	//URL description WSDL = http://localhost:8080/jeeWpApp/CompteServiceImpl?wsdl
+	//suverveiller les affichages dans console jboss
 	
 	//@EJB (pour injecter EJB seulement)
 	@Inject // (pour injecter n'imporquel type d'élément géré par le conteneur)
