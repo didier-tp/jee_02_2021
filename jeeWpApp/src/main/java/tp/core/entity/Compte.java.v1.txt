@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +35,11 @@ import lombok.Setter;
 })
 //SELECT c FROM Compte c JOIN FETCH c.client cli WHERE cli.numClient = :numCli
 //dans une variante Compte.findCompteByClientNumAvecInfoClient
+@XmlType(namespace="http://entity.core.tp/")
+@XmlRootElement(name="compte")
+@XmlAccessorType(XmlAccessType.FIELD) //pour interpréter @XmlTransient sur private
+//api JAX-WS = api standard java pour les WS SOAP
+//JAX-WS utilise en interne une api JAXB (pour convertir java en XML )
 public class Compte {
 	
 	//@Id : identificant , clef_primaire
@@ -48,7 +58,11 @@ public class Compte {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="refClient")
+	@XmlTransient  //@XmlTransient pour demander à ne pas tenir compte de la sous partie client
+	               //lorsque l'objet java Compte est transformé en XML (cas WS SOAP)
+	//@JsonIgnore // idem .... WS REST (JSON)
 	private Client client; //avec get/set
+	
 	
 	
 	/*

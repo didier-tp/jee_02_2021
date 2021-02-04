@@ -30,8 +30,11 @@ import tp.core.entity.Compte;
 
 //@Transactional() = equivalent dans Spring (à expliciter)
 
+@WebService(endpointInterface = "tp.core.bs.CompteService")
 public class CompteServiceImpl implements CompteService {
 	
+	//URL description WSDL = http://localhost:8080/jeeWpApp/CompteServiceImpl?wsdl
+	//suverveiller les affichages dans console jboss
 	
 	//@EJB (pour injecter EJB seulement)
 	@Inject // (pour injecter n'imporquel type d'élément géré par le conteneur)
