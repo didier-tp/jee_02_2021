@@ -3,9 +3,11 @@ package tp.web.mbean;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import lombok.Getter;
@@ -41,11 +43,15 @@ public class ClientComptesMBean {
 				//réactualiser liste des comptes coté JSF
 				//pour afficher les valeurs qui ont changé:
 				this.listeComptes = compteService.rechercherComptesDuClient(numClient);
+				suite="comptes"; //pour réafficher les nouvelles valeurs des comptes
 			} catch (Exception e) {
+				FacesContext.getCurrentInstance()
+				   .addMessage(null /*global , pas idzonesaisieParticuliere*/, 
+						       new FacesMessage(e.getMessage()));
 				e.printStackTrace();
 			}
 			
-			suite="comptes"; //pour réafficher les nouvelles valeurs des comptes
+			
 			return suite;
 		}
 		

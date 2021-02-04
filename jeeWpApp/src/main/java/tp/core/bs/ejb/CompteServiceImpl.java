@@ -3,7 +3,12 @@ package tp.core.bs.ejb;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.ejb.Singleton;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.enterprise.inject.Default; //CDI
 import javax.inject.Inject;
 
@@ -23,6 +28,11 @@ import tp.core.entity.Compte;
 @Singleton //javax.ejb.Singleton cas particulier de @Stateless
            //où on est sûr d'avoir un seul exemplaire de la classe en mémoire
 @Default //version par défaut
+
+//@TransactionManagement(TransactionManagementType.CONTAINER) par défaut sur EJB
+//@TransactionAttribute(TransactionAttributeType.REQUIRED) par défaut sur EJB
+
+//@Transactional() = equivalent dans Spring (à expliciter)
 public class CompteServiceImpl implements CompteService {
 	
 	//@EJB (pour injecter EJB seulement)
@@ -48,12 +58,18 @@ public class CompteServiceImpl implements CompteService {
 	@Override
 	public void effectuerVirement(double montant, long numCptDeb, long numCptCred) {
 		Compte cptDeb = compteDao.findById(numCptDeb);
-		cptDeb.setSolde(cptDeb.getSolde() - montant);
+		double nouveauSoldeSiConfirme =cptDeb.getSolde() - montant;
+		if(nouveauSoldeSiConfirme>=0)
+		    cptDeb.setSolde(nouveauSoldeSiConfirme);
+		else throw new EJBException("virement annulé car pas de découvert autorisé");
 		//compteDao.save(cptDeb);
 		
 		Compte cptCred = compteDao.findById(numCptCred);
 		cptCred.setSolde(cptCred.getSolde() + montant);
 		//compteDao.save(cptCred);
+		
+		//.save() déclenché automatiquement sur entités à l'état "persistant"
+		//si transaction commité automatique (si pas exception).
 	}
 
 }

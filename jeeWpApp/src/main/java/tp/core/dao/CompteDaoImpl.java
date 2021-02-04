@@ -10,6 +10,10 @@ import javax.persistence.PersistenceContext;
 import tp.core.entity.Compte;
 
 @Singleton //ou @Stateless
+
+//@TransactionManagement(TransactionManagementType.CONTAINER) par défaut sur EJB
+//@TransactionAttribute(TransactionAttributeType.REQUIRED) par défaut sur EJB
+
 public class CompteDaoImpl implements CompteDao {
 	
 	//@PersistenceContext() initialise entityManager
