@@ -8,8 +8,10 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	        ....\standalone\configuration\standalone.xml
 	        -->
 	  <jta-data-source>java:jboss/datasources/MyDS</jta-data-source> 
-	  <!-- paramétrage indirect de la connection à la base de données -->  
-	  
+	  <!-- paramétrage indirect de la connection à la base de données --> 
+	 <!--  
+	  <class>tp.core.entity.Compte</class> 
+	  -->
 	  <properties>
 	     <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 	     <!--  <property name="hibernate.hbm2ddl.auto" value="create"/>  -->

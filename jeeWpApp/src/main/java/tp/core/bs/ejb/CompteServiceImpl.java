@@ -47,8 +47,13 @@ public class CompteServiceImpl implements CompteService {
 
 	@Override
 	public void effectuerVirement(double montant, long numCptDeb, long numCptCred) {
-		//sera codé jeudi
-
+		Compte cptDeb = compteDao.findById(numCptDeb);
+		cptDeb.setSolde(cptDeb.getSolde() - montant);
+		//compteDao.save(cptDeb);
+		
+		Compte cptCred = compteDao.findById(numCptCred);
+		cptCred.setSolde(cptCred.getSolde() + montant);
+		//compteDao.save(cptCred);
 	}
 
 }

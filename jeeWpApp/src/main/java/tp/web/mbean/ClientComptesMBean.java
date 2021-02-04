@@ -35,14 +35,16 @@ public class ClientComptesMBean {
 		public String effectuerVirement() {
 			String suite=null;
 			//traitement qui sera plus tard déléguer à un EJB
-			for(Compte cpt : listeComptes) {
-				if(cpt.getNumero()==numCptDeb) {
-					cpt.setSolde(cpt.getSolde() - montant);
-				}
-				if(cpt.getNumero()==numCptCred) {
-					cpt.setSolde(cpt.getSolde() + montant);
-				}
+			try {
+				//effectuer le virement en base:
+				compteService.effectuerVirement(montant, numCptDeb, numCptCred);
+				//réactualiser liste des comptes coté JSF
+				//pour afficher les valeurs qui ont changé:
+				this.listeComptes = compteService.rechercherComptesDuClient(numClient);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+			
 			suite="comptes"; //pour réafficher les nouvelles valeurs des comptes
 			return suite;
 		}
