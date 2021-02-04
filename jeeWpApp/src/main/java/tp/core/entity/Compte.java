@@ -2,6 +2,7 @@ package tp.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +28,8 @@ import lombok.Setter;
   @NamedQuery(name = "Compte.findByClientNum" , 
      query = "SELECT c FROM Compte c JOIN c.client cli WHERE cli.numClient = :numCli")
 })
+//SELECT c FROM Compte c JOIN FETCH c.client cli WHERE cli.numClient = :numCli
+//dans une variante Compte.findCompteByClientNumAvecInfoClient
 public class Compte {
 	
 	//@Id : identificant , clef_primaire
@@ -43,7 +46,7 @@ public class Compte {
 	
 	private Double solde; //par défaut stock" dans colonne "solde"
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="refClient")
 	private Client client; //avec get/set
 	

@@ -49,6 +49,9 @@ public class CompteServiceImpl implements CompteService {
 	public List<Compte> rechercherTousLesComptes() {
 		return compteDao.findAll();
 	}
+	
+	//List<Compte> rechercherTousLesComptesAvecInfosClient() {
+		
 
 	@Override
 	public List<Compte> rechercherComptesDuClient(Long numeroClient) {

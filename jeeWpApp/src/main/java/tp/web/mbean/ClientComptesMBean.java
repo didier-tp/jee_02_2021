@@ -44,12 +44,12 @@ public class ClientComptesMBean {
 				//pour afficher les valeurs qui ont changé:
 				this.listeComptes = compteService.rechercherComptesDuClient(numClient);
 				suite="comptes"; //pour réafficher les nouvelles valeurs des comptes
-			} catch (Exception e) {
-				FacesContext.getCurrentInstance()
-				   .addMessage(null /*global , pas idzonesaisieParticuliere*/, 
-						       new FacesMessage(e.getMessage()));
-				e.printStackTrace();
-			}
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance()
+			   .addMessage(null /*global , pas idzonesaisieParticuliere*/, 
+					       new FacesMessage(e.getMessage()));
+			e.printStackTrace();
+		}
 			
 			
 			return suite;
@@ -86,6 +86,10 @@ public class ClientComptesMBean {
 			System.out.println("ClientComptesMBean.numClient="+numClient);
             this.listeComptes = compteService.rechercherComptesDuClient(numClient);
 
-			
+            /*
+            Pour provoquer LazyException si pas EAGER ou bien FETCH:
+            String nomClient = listeComptes.get(0).getClient().getNom();
+			System.out.println("nomClient="+nomClient);
+			*/
 		}
 }
