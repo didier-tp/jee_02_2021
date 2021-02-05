@@ -8,6 +8,35 @@ function rechercherComptes(){
     makeAjaxGetRequest(url , callbackListeCompte);
 }
 
+
+function virement(){
+	var zoneMontant = document.getElementById("montant");
+	var montant = zoneMontant.value;
+	var zoneNumCptDeb = document.getElementById("numCptDeb");
+	var numCptDeb = zoneNumCptDeb.value;
+	var zoneNumCptCred = document.getElementById("numCptCred");
+	var numCptCred = zoneNumCptCred.value;
+	var demandeVirement = {
+		montant : montant,
+		numCptDeb : numCptDeb,
+		numCptCred : numCptCred
+	}
+	var url ="./rest/api-bank/compte" ;
+	makeAjaxPostRequest(url , JSON.stringify(demandeVirement),
+	                    callbackSuccess , callbackError);
+}
+
+function callbackSuccess(){
+	var zoneMessage = document.getElementById("message");
+	zoneMessage.innerHTML="virement bien effectu&eacute;";
+	rechercherComptes();
+}
+
+function callbackError(){
+	var zoneMessage = document.getElementById("message");
+	zoneMessage.innerHTML="virement pas bien effectu&eacute; (erreur)";
+}
+
 //function qui sera appelée automatiquement quand la réponse revient
 function callbackListeCompte(data){
 	console.log("data (reponse)="+data);
