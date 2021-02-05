@@ -1,6 +1,10 @@
 function rechercherComptes(){
 	console.log("rechercherComptes");
-	var url ="./rest/api-bank/compte";
+	var zoneNumClient = document.getElementById("numClient");
+	var numClient = zoneNumClient.value;
+	var url ="./rest/api-bank/compte" ;
+	if(numClient != "")
+	   url = "./rest/api-bank/compte?numClient=" + numClient;
     makeAjaxGetRequest(url , callbackListeCompte);
 }
 
