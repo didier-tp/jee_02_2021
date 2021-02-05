@@ -6,3 +6,5 @@
 - jboss wildfly "full" (idéalement en 21.0.2.Final)
 - eventuellement Soap-ui pour tester WS-Soap
 - éventuellement PostMan pour tester WS-REST
+=====
+https://github.com/didier-tp/nova-spring (exmple simple Spring)
