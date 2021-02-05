@@ -18,7 +18,7 @@ public class CompteDaoImpl implements CompteDao {
 	
 	//@PersistenceContext() initialise entityManager
 	//à partir de META-INF/persistence.xml
-	@PersistenceContext()
+	@PersistenceContext(unitName="jeeWpApp")
 	private EntityManager entityManager;
 
 	@Override

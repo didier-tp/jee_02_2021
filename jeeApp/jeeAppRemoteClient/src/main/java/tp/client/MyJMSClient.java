@@ -77,9 +77,9 @@ public class MyJMSClient {
 			MessageProducer messageProducer = session.createProducer(queue);
 			TextMessage message = session.createTextMessage();
 			
-			final int NUM_MSGS=3;
+			final int NUM_MSGS=4;
 			for (int i = 0; i < NUM_MSGS; i++) {
-			    message.setText("This is message " + (i + 1));
+			    message.setText("message du vendredi , " + (i + 1));
 			    System.out.println("Sending message: " + message.getText());
 			    messageProducer.send(message);
 			}
