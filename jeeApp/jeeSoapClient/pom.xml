@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tp</groupId>
+    <artifactId>jeeApp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>jeeSoapClient</artifactId>
+  
+  <dependencies>
+  
+        <!-- for java 11 or java 17 only consuming SOAP WS via JAX-WS -->
+    <!-- 2.3.2 for java 11 , 2.3.5 or plus for java 17  -->
+     <dependency>
+    	<groupId>com.sun.xml.ws</groupId>
+    	<artifactId>jaxws-ri</artifactId>
+    	<version>2.3.5</version> 
+    	<type>pom</type>
+	</dependency>
+	
+	 <dependency>
+		      <groupId>${project.groupId}</groupId>
+		      <artifactId>JeeAppCoreItf</artifactId>
+		      <version>${project.version}</version>      
+       </dependency>
+
+  </dependencies>
+</project>

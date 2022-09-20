@@ -36,7 +36,8 @@ public class RemoteEjbClientApp {
 			
 			//NB: ce nom logique (respectant la norme JEE6) s'affiche dans la console jboss
 			//lors du démarrage du projet servEjb
-			String nomLogiqueEjbCalculateur= "jeeAppEar-0.0.1-SNAPSHOT/JeeAppCoreEjb/CalculTvaImpl!tp.core.bs.CalculTvaRemote";
+			//String nomLogiqueEjbCalculateur= "jeeAppEar-0.0.1-SNAPSHOT/JeeAppCoreEjb/CalculTvaImpl!tp.core.bs.CalculTvaRemote";
+			String nomLogiqueEjbCalculateur= "jeeAppEar/JeeAppCoreEjb/CalculTvaImpl!tp.core.bs.CalculTvaRemote";
 			//ne pas utiliser le préfixe "ejb:" avec cette version/configuration (de Jboss, du client , ...) 
 			//connection à l'objet distant RMI via son nom logique
 			CalculTvaRemote proxyCalculateurTva = (CalculTvaRemote) jndiContext.lookup(nomLogiqueEjbCalculateur);

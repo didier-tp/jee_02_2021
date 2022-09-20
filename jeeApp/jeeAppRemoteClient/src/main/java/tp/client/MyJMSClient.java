@@ -19,6 +19,7 @@ public class MyJMSClient {
 		initJndiClientProperties();
 		try {
 			Context jndiContext = new InitialContext(props);
+			System.out.println("jndiContext initialized");
 			testJms(jndiContext);
 		} catch (Exception e) {
 				e.printStackTrace();
@@ -40,7 +41,7 @@ public class MyJMSClient {
 		props.put(Context.SECURITY_CREDENTIALS, "guest007"); //"pwd", "guest007"
 		//avec admin = utilisateur ajouté via la commande JBOSS7_HOME/bin/add-user 
 		//mot de passe=pwd et rôles associés admin,guest
-		//et avec "guest" = rôle configuré sur la partie "messaging" de standalone(-full).xml *
+		//et avec role="guest" = rôle configuré sur la partie "messaging" de standalone(-full).xml *
 }
 	
 	private static Connection initJmsConnection(Context jndiContext){
@@ -54,7 +55,7 @@ public class MyJMSClient {
 				 
 				 connection = connectionFactory.createConnection( props.getProperty(Context.SECURITY_PRINCIPAL),
 				                                                    props.getProperty(Context.SECURITY_CREDENTIALS)); 
-				
+				System.out.println("jms connection: " + connection.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,20 +67,20 @@ public class MyJMSClient {
 		try {
 			Connection connection = initJmsConnection(jndiContext);
 			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			
+			System.out.println("jsm session: " + session);
 			//queue = (Queue) jndiContext.lookup("myQueue"); //or jms/myQueue ?
 			//Queue queue = (Queue) ic.lookup("jms/queue/myQueue"); 
 			// avec queue/myQueue qui doit etre exporté dans standalone(-full).xml 
 			//<entry name="java:jboss/exported/jms/queue/test"/> 
 			
 			Queue queue=session.createQueue("myQueue"); //NB: createQueue() create a new queue or open an existing one
-			
+			System.out.println("jsm queue: " + session);
 			MessageProducer messageProducer = session.createProducer(queue);
 			TextMessage message = session.createTextMessage();
 			
 			final int NUM_MSGS=4;
 			for (int i = 0; i < NUM_MSGS; i++) {
-			    message.setText("message du vendredi , " + (i + 1));
+			    message.setText("message , " + (i + 1));
 			    System.out.println("Sending message: " + message.getText());
 			    messageProducer.send(message);
 			}

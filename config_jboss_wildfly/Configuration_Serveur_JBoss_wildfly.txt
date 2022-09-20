@@ -42,4 +42,10 @@ en y ajustant une configuration de ce type (près de la ligne 153 environ):
 
 =========================
 La version standalone-full.xml est nécessaire pour les EJB de type MDB/JMS .
+================
+add-user
+b)
+username=guest , password=guest007 et roles=guest,admin ou roles=guest
+yes for ejbRemote
+
 

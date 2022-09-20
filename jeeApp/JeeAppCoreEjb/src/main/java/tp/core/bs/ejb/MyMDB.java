@@ -8,12 +8,12 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 /**
- * NB: Jboss EAP ou Wildfly doit être démarré en version standalone-full.xml
+ * NB: Jboss EAP ou Wildfly doit etre demarre en version standalone-full.xml
  *     pour gérer JMS et les EJB de type MDB.
  * Message-Driven Bean implementation class for: MyMDB , simple destination/queue name (ex: "myQueue" without "jms/" )
  * 
  * <jms-queue name="myQueue" entries="java:jboss/exported/jms/queue/myQueue   java:/jms/queue/myQueue"/>
- * à idéalement ajouter dans standalone-full.xml
+ * a idealement ajouter dans standalone-full.xml
  * 
  */
 @MessageDriven(	activationConfig = {

@@ -1,0 +1,38 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< tp:jeeAppRemoteClient >------------------------
+[INFO] Building jeeAppRemoteClient 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jeeAppRemoteClient ---
+[INFO] Deleting C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ jeeAppRemoteClient ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ jeeAppRemoteClient ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ jeeAppRemoteClient ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jeeAppRemoteClient ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ jeeAppRemoteClient ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ jeeAppRemoteClient ---
+[INFO] Building jar: C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\target\jeeAppRemoteClient.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:3.4.2:single (make-assembly) @ jeeAppRemoteClient ---
+[INFO] Building jar: C:\tp\local-git-didier-tp-repositories\jee_02_2021\jeeApp\jeeAppRemoteClient\target\jeeAppRemoteClient-jar-with-dependencies.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.996 s
+[INFO] Finished at: 2022-09-20T20:34:08+02:00
+[INFO] ------------------------------------------------------------------------
